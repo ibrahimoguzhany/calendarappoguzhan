@@ -1019,7 +1019,7 @@ body {
   padding: 12px 10px;
   background: #fafafa;
 }
-#right {
+#mainContainer {
   position: absolute;
   left: 200px;
   top: 0px;
