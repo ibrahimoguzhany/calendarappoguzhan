@@ -22,7 +22,7 @@ const SignIn = () => {
   const navigate = useNavigate();
   const { user, authenticated } = useUser();
   if (user || authenticated) {
-    navigate(APP_ROUTES.DASHBOARD);
+    navigate(APP_ROUTES.CALENDAR);
   }
 
   const [email, setEmail] = useState("");
@@ -50,9 +50,9 @@ const SignIn = () => {
       setIsLoading(true);
       const response = await axios({
         method: "post",
-        url: API_ROUTES.SIGN_IN,
+        url: API_ROUTES.LOGIN,
         data: {
-          email,
+          UserNameOrEmail: email,
           password,
         },
       });
@@ -62,7 +62,7 @@ const SignIn = () => {
         return;
       }
       storeTokenInLocalStorage(response.data.token);
-      navigate(APP_ROUTES.DASHBOARD);
+      navigate(APP_ROUTES.CALENDAR);
     } catch (err) {
       setError("Giriş yaparken bir hata oluştu");
       console.log("Giriş yaparken bir hata oluştu: ", err);
