@@ -25,7 +25,7 @@ const SignUp = () => {
     firstName: "",
     lastName: "",
     username: "",
-    tcNumber: "",
+    identityNumber: "",
     password: "",
     passwordConfirm: "",
     phone: "",
@@ -79,12 +79,11 @@ const SignUp = () => {
       try {
         const response = await axios({
           method: "POST",
-          url: API_ROUTES.SIGN_UP,
-          data: {
-            form,
-          },
+          url: API_ROUTES.REGISTER,
+          data: form,
         });
-        if (!response?.data?.token) {
+        console.log(form);
+        if (!response?.data?.isSuccess) {
           console.log("Kayıt olurken bir sorun oluştu: ", response);
           return;
         }
@@ -147,15 +146,15 @@ const SignUp = () => {
                   <FormFeedback>{errors.username}</FormFeedback>
                 </FormGroup>
                 <FormGroup>
-                  <Label for="tcNumber" className="sr-only">
+                  <Label for="identityNumber" className="sr-only">
                     TC Kimlik No
                   </Label>
                   <Input
                     type="text"
-                    name="tcNumber"
-                    id="tcNumber"
+                    name="identityNumber"
+                    id="identityNumber"
                     placeholder="TC Kimlik No"
-                    onChange={(e) => setField("tcNumber", e.target.value)}
+                    onChange={(e) => setField("identityNumber", e.target.value)}
                     className="border rounded p-2"
                   />
                 </FormGroup>

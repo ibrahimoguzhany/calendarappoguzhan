@@ -15,7 +15,7 @@ export default function App() {
         <Route
           exact
           path="/"
-          element={<Navigate to={APP_ROUTES.DASHBOARD} />}
+          element={<Navigate to={APP_ROUTES.CALENDAR} />}
         />
         <Route path={APP_ROUTES.SIGN_UP} exact element={<SignUp />} />
         <Route path={APP_ROUTES.SIGN_IN} element={<SignIn />} />

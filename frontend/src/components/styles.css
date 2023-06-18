@@ -1022,7 +1022,7 @@ body {
 #mainContainer {
   position: absolute;
   left: 200px;
-  top: 0px;
+  top: 50px;
   right: 0;
   bottom: 0;
 }
